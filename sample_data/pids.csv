@@ -1,0 +1,13 @@
+PID,Name,Units,Why it Matters
+0D,Vehicle Speed,km/h or mph,Core metric for route profiling
+0C,Engine RPM,rev/min,High RPM = more fuel use
+11,Throttle Position,%,Shows acceleration behavior
+10,Mass Air Flow (MAF),grams/sec,Used to calculate fuel usage
+5E,Fuel Rate,L/h or gal/h,Direct measure of fuel consumption (if supported)
+04,Engine Load,%,Indicates engine effort
+05,Coolant Temp,°C or °F,Helps understand warm-up phase fuel use
+0F,Intake Air Temp,°C or °F,Affects combustion efficiency
+0B,Manifold Absolute Pressure (MAP),kPa,Used with RPM to estimate engine airflow
+06,Fuel Trim (Short Term),%,Shows how much ECU is adjusting fuel delivery
+07,Fuel Trim (Long Term),%,Shows how much ECU is adjusting fuel delivery
+2F,Fuel Level Input,%,Helps track tank usage and estimate range
