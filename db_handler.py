@@ -19,5 +19,7 @@ def fetch_all_data(table):
     print(data)
 
 balls = list_tables()
-for ball in balls:
-    fetch_all_data(ball[0])
+print(balls)
+fetch_all_data(balls[8][0])
+#for ball in balls:
+#    fetch_all_data(ball[0])
