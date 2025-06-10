@@ -36,7 +36,8 @@ def handle_data(rsp):
     val = rsp.value
 
     if hasattr(val, '__dict__'):  # structured object like Status
-       val = str(vars(object_to_dict(val))) # or json.dumps() if you want a stringified dict
+       #val = str(vars(object_to_dict(val))) # or json.dumps() if you want a stringified dict
+       val = str(vars(val))
     elif hasattr(val, 'magnitude'):
         val = val.magnitude
     else:
@@ -62,9 +63,9 @@ def object_to_dict(obj):
             "completed": obj.completed
         }
     elif hasattr(obj, 'magnitude'):
-        return obj.magnitude
+        return {"magnitude" : obj.magnitude}
     else:
-        return str(obj)  # fallback
+        return {"object": str(obj)}  # fallback
     
 def save_info_old():
     for cmd_name, rows in data_tables.items():
@@ -126,7 +127,7 @@ def main():
     connection.start()
     
     # the callback will now be fired upon receipt of new values
-    time.sleep(10)
+    input()
     connection.stop()
     save_info()
 
