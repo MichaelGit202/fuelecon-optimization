@@ -36,7 +36,7 @@ def handle_data(rsp):
     val = rsp.value
 
     if hasattr(val, '__dict__'):  # structured object like Status
-        val = str(vars(val))  # or json.dumps() if you want a stringified dict
+       val = str(vars(object_to_dict(val))) # or json.dumps() if you want a stringified dict
     elif hasattr(val, 'magnitude'):
         val = val.magnitude
     else:
@@ -50,6 +50,21 @@ def handle_data(rsp):
 
     print(f"RECORDED : {rsp.command.name} = {val}")
     #print(rsp)
+
+def object_to_dict(obj):
+    if isinstance(obj, dict):
+        return {k: object_to_dict(v) for k, v in obj.items()}
+    elif hasattr(obj, '__dict__'):
+        return {k: object_to_dict(v) for k, v in vars(obj).items()}
+    elif hasattr(obj, 'supported') and hasattr(obj, 'completed'):
+        return {
+            "supported": obj.supported,
+            "completed": obj.completed
+        }
+    elif hasattr(obj, 'magnitude'):
+        return obj.magnitude
+    else:
+        return str(obj)  # fallback
     
 def save_info_old():
     for cmd_name, rows in data_tables.items():
@@ -80,6 +95,13 @@ def save_info():
         } for row in rows])
         df.to_sql(table_name, conn, if_exists='append', index=False)
     conn.close()
+
+    #print table names to a text file, will include empty tables
+   
+    with open("table-heads.txt", "a") as file:  # open for writing
+        for cmd_name, rows in data_tables.items():
+            has_rows = "T" if rows else "F"
+            file.write(f"{cmd_name} {has_rows}\n")
 
 def regular_query(code):
     ports = obd.scan_serial()

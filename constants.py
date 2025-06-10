@@ -1,6 +1,6 @@
 MASS_G6_SEDAN = 1499.123 #<- kg 3,305 lbs
-MASS_GASOLINE = 0.74 #<- kg / liter <---  
-DENSITY_GASOLINE = 745 #kg/m³ at 15 °C
+MASS_GASOLINE_LITER = 0.74 #<- kg / liter <---  
+MASS_GASOLINE = 745 #kg/m³ at 15 °C
 FORCE_GRAVITY = 9.8 # N
 
 
