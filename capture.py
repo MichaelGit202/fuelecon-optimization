@@ -35,9 +35,9 @@ def supported_commands():
 def handle_data(rsp):
     val = rsp.value
 
-    if hasattr(val, '__dict__'):  # structured object like Status
-       #val = str(vars(object_to_dict(val))) # or json.dumps() if you want a stringified dict
-       val = str(vars(val))
+    if hasattr(val, '__dict__'):  # structured object like Status neeeds drilling
+       val = str(object_to_dict(val)) # fixed?
+       #val = str(vars(val))
     elif hasattr(val, 'magnitude'):
         val = val.magnitude
     else:
@@ -86,16 +86,26 @@ def save_info_old():
 
 def save_info():
     conn = sqlite3.connect("obd_data.db")
+
+    #a very poorly implemented way of setting the run number in the db
+    with open("run_number.txt", "r") as file:
+        number = file.read()
+
+    print(number)
     for cmd_name, rows in data_tables.items():
         if not rows:
             continue
         table_name = cmd_name.replace(" ", "_").replace("/", "_")
         df = pd.DataFrame([{
+            "run_number" : number,
             "timestamp": row["timestamp"],
             "value": row["value"]
         } for row in rows])
         df.to_sql(table_name, conn, if_exists='append', index=False)
     conn.close()
+
+    with open("run_number.txt", "w") as file:
+        file.write( str(int(number) + 1))
 
     #print table names to a text file, will include empty tables
    
@@ -104,13 +114,13 @@ def save_info():
             has_rows = "T" if rows else "F"
             file.write(f"{cmd_name} {has_rows}\n")
 
-def regular_query(code):
-    ports = obd.scan_serial()
-    connection = obd.OBD('COM4')
-    print("Ports:")
-    print(connection)
-    r = connection.query(code)
-    print(vars(r))
+#def regular_query(code):
+#    ports = obd.scan_serial()
+#    connection = obd.OBD('COM4')
+#    print("Ports:")
+#    print(connection)
+#    r = connection.query(code)
+#    print(vars(r))
 
 
 
@@ -134,7 +144,7 @@ def main():
 if __name__ == "__main__":
     main()
     #regular_query(obd.commands.STATUS) #STATUS_DRIVE_CYCLE
-
+    #save_info()
     
 #for cmd in connection.supported_commands:
 #    if cmd.mode == 1 and cmd.header is not None:  # Mode 1 = live data

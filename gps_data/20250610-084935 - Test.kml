@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with BasicAirData GPS Logger for Android - ver. 3.2.3 -->
+<!-- Track 1 = 8 TrackPoints + 0 Placemarks -->
+<kml xmlns="http://www.opengis.net/kml/2.2">
+ <Document>
+  <name>GPS Logger 20250610-084935</name>
+  <description><![CDATA[Test
+8 Trackpoints + 0 Placemarks]]></description>
+  <Style id="TrackStyle">
+   <LineStyle>
+    <color>ff0000ff</color>
+    <width>3</width>
+   </LineStyle>
+   <PolyStyle>
+    <color>7f0000ff</color>
+   </PolyStyle>
+   <BalloonStyle>
+    <text><![CDATA[<p style="color:red;font-weight:bold">$[name]</p><p style="font-size:11px">$[description]</p><p style="font-size:7px">Track Stats based on: Total time | Time in Movement</p>]]></text>
+   </BalloonStyle>
+  </Style>
+
+  <Placemark id="20250610-084935">
+   <name>Track 20250610-084935</name>
+   <description><![CDATA[<b>Test</b><br><br>Distance = 0 m<br>Duration = 00:07 | 00:00<br>Altitude Gap = 0 m<br>Max Speed = 0 km/h<br>Avg Speed = 0.4 |  km/h<br>Direction =  <br><br><i>8 Trackpoints</i>]]></description>
+   <styleUrl>#TrackStyle</styleUrl>
+   <LineString>
+    <extrude>0</extrude>
+    <tessellate>0</tessellate>
+    <altitudeMode>clampToGround</altitudeMode>
+    <coordinates>
+     -80.35399598,42.01639945,175.978
+     -80.35399658,42.01639449,174.635
+     -80.35400018,42.01639426,174.987
+     -80.35400248,42.01639360,174.726
+     -80.35400222,42.01639371,174.929
+     -80.35400213,42.01639371,175.031
+     -80.35400303,42.01639473,175.220
+     -80.35400188,42.01639482,175.495
+    </coordinates>
+   </LineString>
+  </Placemark>
+
+ </Document>
+</kml>
+ 

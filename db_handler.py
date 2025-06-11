@@ -33,13 +33,13 @@ def fetch_tables_and_top_rows(limit=10):
             result[table_name] = []
     return result
 
-balls = list_tables()
-print(balls)
+#balls = list_tables()
+#print(balls)
 #fetch_all_data(balls[8][0])
 #for ball in balls:
 #    fetch_all_data(ball[0])
 
-tables = fetch_tables_and_top_rows()
+tables = fetch_tables_and_top_rows(10)
 #print(tables)
 for table in tables:
     print("\n")

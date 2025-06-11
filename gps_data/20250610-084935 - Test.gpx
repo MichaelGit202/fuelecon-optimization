@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with BasicAirData GPS Logger for Android - ver. 3.2.3 -->
+<!-- Track 1 = 8 TrackPoints + 0 Placemarks -->
+
+<!-- Track Statistics (based on Total Time | Time in Movement): -->
+<!--  Distance = 0 m -->
+<!--  Duration = 00:07 | 00:00 -->
+<!--  Altitude Gap = 0 m -->
+<!--  Max Speed = 0 km/h -->
+<!--  Avg Speed = 0.4 |  km/h -->
+<!--  Activity = steady -->
+<!--  Altitudes = Raw -->
+
+<gpx version="1.0"
+     creator="BasicAirData GPS Logger 3.2.3"
+     xmlns="http://www.topografix.com/GPX/1/0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<name>GPS Logger 20250610-084935</name>
+<desc>Test</desc>
+<time>2025-06-10T12:50:20Z</time>
+<keywords>steady</keywords>
+<bounds minlat="42.01639360" minlon="-80.35400303" maxlat="42.01639945" maxlon="-80.35399598" />
+
+<trk>
+ <name>Track 20250610-084935</name>
+ <trkseg>
+  <trkpt lat="42.01639945" lon="-80.35399598"><ele>175.978</ele><time>2025-06-10T12:49:35Z</time><speed>0.000</speed><sat>20</sat></trkpt>
+  <trkpt lat="42.01639449" lon="-80.35399658"><ele>174.635</ele><time>2025-06-10T12:49:36Z</time><speed>0.000</speed><sat>20</sat></trkpt>
+  <trkpt lat="42.01639426" lon="-80.35400018"><ele>174.987</ele><time>2025-06-10T12:49:37Z</time><speed>0.000</speed><sat>20</sat></trkpt>
+  <trkpt lat="42.01639360" lon="-80.35400248"><ele>174.726</ele><time>2025-06-10T12:49:38Z</time><speed>0.000</speed><sat>19</sat></trkpt>
+  <trkpt lat="42.01639371" lon="-80.35400222"><ele>174.929</ele><time>2025-06-10T12:49:39Z</time><speed>0.000</speed><sat>18</sat></trkpt>
+  <trkpt lat="42.01639371" lon="-80.35400213"><ele>175.031</ele><time>2025-06-10T12:49:40Z</time><speed>0.000</speed><sat>19</sat></trkpt>
+  <trkpt lat="42.01639473" lon="-80.35400303"><ele>175.220</ele><time>2025-06-10T12:49:41Z</time><speed>0.000</speed><sat>18</sat></trkpt>
+  <trkpt lat="42.01639482" lon="-80.35400188"><ele>175.495</ele><time>2025-06-10T12:49:42Z</time><speed>0.000</speed><sat>18</sat></trkpt>
+ </trkseg>
+</trk>
+
+</gpx>
+ 

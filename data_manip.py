@@ -44,3 +44,5 @@ def estimate_afr(o2_voltage):
         # Linear approx between 0.1-0.8 volts
         # AFR range from 20 to 10
         return 20 - (o2_voltage - 0.1) * (10 / 0.7)
+    
+
