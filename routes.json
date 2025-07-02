@@ -1,0 +1,5 @@
+{"routes" : ["home_to_wcf","wcf_to_home", 
+"home_to_behrend_fairview", "behrend_to_home_fairview",
+"home_to_behrend_platea", "behrend_to_home_platea",
+"home_to_behrend_sterrettania", "behrend_to_home_sterrettania", 
+"home_to_behrend_bayfront", "behrend_to_home_bayfront"]}

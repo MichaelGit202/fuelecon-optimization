@@ -3,10 +3,14 @@ import obd
 import time
 import pandas as pd
 import sqlite3
+import json
 
 # This will store all the data rows
 data_tables = {}
 conn = sqlite3.connect("obd_data.db")
+#screw it, global
+route = "NULL"
+
 # a callback that prints every new value to the console
 def new_rpm(r):
     print (r.value)
@@ -97,6 +101,7 @@ def save_info():
             continue
         table_name = cmd_name.replace(" ", "_").replace("/", "_")
         df = pd.DataFrame([{
+            "route" : route,
             "run_number" : number,
             "timestamp": row["timestamp"],
             "value": row["value"]
@@ -125,6 +130,22 @@ def save_info():
 
 
 def main():
+    print("Pick a route")
+    with open('routes.json', 'r') as f:
+        data = json.load(f)
+        routes = data['routes']
+        f.close()
+    for i in range(len(routes)):
+        print(f"{i} : {route[i]}")
+    userInput = input()
+
+    if userInput < len(routes):
+        print(f"route picked: {routes[userInput]}")
+    else:
+        print(f"{userInput} is not a valid route")
+
+
+
     connection = obd.Async(portstr="COM4")
     for cmd in connection.supported_commands:
         print(cmd)
